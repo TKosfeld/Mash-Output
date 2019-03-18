@@ -14,5 +14,6 @@ Control Pair
 
 Current time consumption on 100 genome piecwise comparison : 46.72 seconds.
 
-https://github.com/TKosfeld/ViromeMetagenomics
+https://github.com/TKosfeld/Mash-Output
 https://docs.python.org/1/library/subprocess.html
+https://docs.python.org/2/library/argparse.html

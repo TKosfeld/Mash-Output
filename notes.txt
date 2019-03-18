@@ -1,0 +1,18 @@
+Starting datasets are located in data.
+Seperated all-viral.fa operates as complete working data set with test folder holds each seperated fna file.
+Duo indexDriver.py and Index handles origianl seperation and old sorting algorithm.
+Work backbone is conducted by mashOutput.py interacts with already seperated files in the folder and compares their mash distances by sequential size in a list determined by bubble sort.
+Output.txt is parsed by outputSort.py which eliminates all zero results by taking in Output.txt that mashOutput puts out, removes the zeros and sorts in descending order in alikeness.
+sortedOutput.txt holds all 700ish pairs found to be similiar even at the most basic level.
+3 Pairs were chosen from highest alikeness to evaluate under ANI and AAI. With 1 control measured as 0 alikeness to verify authenticity.
+3 Pair Codes
+030911 | 030927 | Mash Alikeness : 995/1000
+034266 | 024450 | Mash Alikeness : 856/1000
+022981 | 021311 | Mash Alikeness : 748/1000
+Control Pair
+009559 | 032275 | Mash Alikeness : 0/1000
+
+Current time consumption on 100 genome piecwise comparison : 46.72 seconds.
+
+https://github.com/TKosfeld/ViromeMetagenomics
+https://docs.python.org/1/library/subprocess.html

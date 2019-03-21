@@ -11,6 +11,9 @@ parser.add_argument("-n", "--number", type = int, default = 100,
 	help = 'Optional argument to set number of genomes processed, default to 100')
 parser.add_argument("-f", "--filetype", type = str, default = '.fna',
 	help = "Optional argument to set genome file type for analysis, defaults to .fna")
+parser.add_argument("-s", "--sort", action = "store_true",
+        help = "Optional argument to sort list of input genomes before piecewise comparison of selected number of genomes")
+
 args = parser.parse_args()
 print args.input
 print args.output
@@ -26,18 +29,19 @@ for file in os.listdir(args.input):
 	if file.endswith(args.filetype):
 		f.append(file)
 
-# Re-populate list with filename, size tuples
-#for i in xrange(len(f)):
-#	f[i] = (f[i], os.path.getsize(f[i]))
+if (args.sort):
+    # Re-populate list with filename, size tuples
+    for i in xrange(len(f)):
+    	f[i] = (f[i], os.path.getsize(args.input + "/" + f[i]))
 
-# Sort list by file size
-# If reverse=True sort from largest to smallest
-# If reverse=False sort from smallest to largest
-#f.sort(key=lambda filename: filename[1], reverse=True)
+    # Sort list by file size
+    # If reverse=True sort from largest to smallest
+    # If reverse=False sort from smallest to largest
+    f.sort(key=lambda filename: filename[1], reverse=True)
 
-# Re-populate list with just filenames
-#for i in xrange(len(f)):
-#	f[i] = f[i][0]
+    # Re-populate list with just filenames
+    for i in xrange(len(f)):
+    	f[i] = f[i][0]
 
 # Subindex genome list for first user dictated entries
 g = f[:args.number]
